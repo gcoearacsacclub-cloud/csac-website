@@ -1,0 +1,288 @@
+/* ============================================
+   EXAMINATIONS, WHY JOIN & COMMITTEE SECTIONS
+   ============================================ */
+
+/* ─── SECTION 3: EXAMINATIONS WE COVER ─── */
+#exams {
+  background: var(--bg-dark);
+}
+.exams-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.exams-division {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+}
+.admin-division {
+  border-top: 3px solid var(--saffron);
+  box-shadow: var(--shadow-saffron);
+}
+.defence-division {
+  border-top: 3px solid var(--green);
+  box-shadow: var(--shadow-green);
+}
+.division-title {
+  font-size: 1.35rem;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.division-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.division-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Exam Card Styling */
+.exam-card {
+  background: rgba(10, 17, 40, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+.exam-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold), var(--green));
+  opacity: 0;
+  transition: var(--transition);
+}
+.exam-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4), var(--shadow-glow);
+}
+.exam-card:hover::after { opacity: 1; }
+
+.exam-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: rgba(212, 168, 67, 0.1);
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 20px;
+  margin-bottom: 16px;
+  transition: var(--transition);
+}
+.exam-card:hover .exam-icon {
+  background: var(--gold);
+  color: var(--navy);
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.exam-card h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+/* Service Motto Badge */
+.service-motto {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  background: rgba(212, 168, 67, 0.05);
+}
+
+.exam-card p {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── SECTION 4: WHY JOIN CSAC ─── */
+#why-join {
+  background: var(--bg-section);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+.feature-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-glow);
+}
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.12), rgba(19, 136, 8, 0.12));
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--saffron);
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.olq-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--gold);
+  background: rgba(212, 168, 67, 0.08);
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  padding: 3px 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.feature-card h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.feature-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ─── SECTION 5: WORKING COMMITTEE ─── */
+#committee {
+  background: var(--bg-dark);
+}
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+.member-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+}
+.member-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.4), var(--shadow-glow);
+}
+
+.member-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  background: var(--navy-mid);
+  border: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 28px;
+  transition: var(--transition);
+}
+.member-card:hover .member-photo {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(212, 168, 67, 0.3);
+}
+
+.member-rank-stars {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.gold-star {
+  color: var(--gold);
+  font-size: 0.72rem;
+  filter: drop-shadow(0 0 4px var(--gold));
+}
+
+.member-card h3 {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.member-card .designation {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+.member-card .dept {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.member-socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.member-socials a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: var(--transition);
+}
+.member-socials a:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+@media(max-width: 600px) {
+  .exams-division { padding: 20px 16px; }
+  .committee-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width: 420px) {
+  .committee-grid { grid-template-columns: 1fr; }
+}
