@@ -93,7 +93,7 @@ const schemas = {
     title: 'Testimonials',
     fields: [
       { name: 'name', label: 'Name', type: 'text', required: true },
-      { name: name: 'role', label: 'Role/Position', type: 'text', required: false },
+      { name: 'role', label: 'Role/Position', type: 'text', required: false },
       { name: 'quote', label: 'Quote', type: 'textarea', required: true },
       { name: 'order', label: 'Display Order', type: 'number', required: true },
       { name: 'photoUrl', label: 'Photo', type: 'file', accept: 'image/*' }
