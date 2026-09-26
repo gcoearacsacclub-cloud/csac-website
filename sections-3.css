@@ -1,0 +1,286 @@
+/* ============================================
+   JOIN FORM, CONTACT & INSTITUTIONAL FOOTER
+   ============================================ */
+
+/* ─── SECTION 11: JOIN CSAC FORM ─── */
+#join {
+  background: var(--bg-dark);
+}
+.join-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.join-form {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+.join-form::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%; height: 2px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold), var(--green));
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 18px;
+  background: rgba(10, 17, 40, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 15px rgba(212, 168, 67, 0.15);
+}
+.form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.form-group select {
+  cursor: pointer;
+}
+.form-group select option {
+  background: var(--navy);
+  color: var(--text-primary);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.checkbox-group label:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+.checkbox-group input[type="checkbox"] {
+  accent-color: var(--gold);
+}
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--saffron-deep), var(--gold));
+  color: var(--navy);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(255, 153, 51, 0.25);
+  margin-top: 10px;
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 153, 51, 0.4);
+}
+
+@media(max-width: 480px) {
+  .form-row { grid-template-columns: 1fr; }
+  .join-form { padding: 24px 18px; }
+}
+
+/* ─── SECTION 12: CONTACT ─── */
+#contact {
+  background: var(--bg-section);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: var(--transition);
+}
+.contact-item:hover {
+  border-color: var(--gold);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-glow);
+}
+.contact-item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.12), rgba(212, 168, 67, 0.12));
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 18px;
+}
+.contact-item h4 {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+}
+.contact-item p,
+.contact-item a {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  transition: var(--transition);
+}
+.contact-item a:hover { color: var(--gold); }
+
+.contact-map {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  height: 420px;
+  box-shadow: var(--shadow-md);
+}
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: brightness(0.85) contrast(1.1);
+}
+
+@media(max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-map { height: 280px; }
+}
+
+/* ─── INSTITUTIONAL FOOTER ─── */
+.site-footer {
+  background: var(--navy);
+  padding: 60px 40px 24px;
+  border-top: 1px solid var(--glass-border);
+  position: relative;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--white), var(--green));
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+  margin-top: 14px;
+  max-width: 320px;
+}
+.footer-col h4 {
+  font-size: 0.88rem;
+  color: var(--gold);
+  margin-bottom: 18px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+.footer-col a:hover {
+  color: var(--gold);
+  transform: translateX(4px);
+}
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+.footer-social a:hover {
+  background: rgba(212, 168, 67, 0.15);
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.footer-bottom {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 24px;
+  text-align: center;
+}
+.footer-bottom p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.footer-bottom a { color: var(--gold); }
+
+@media(max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .site-footer { padding: 40px 20px 20px; }
+}
+@media(max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
