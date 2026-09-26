@@ -1,0 +1,443 @@
+/* ============================================
+   HERO & ABOUT SECTIONS - Institutional/Defence Theme
+   ============================================ */
+
+/* ─── Hero Section ─── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 20px 100px; /* hero has its own full-screen padding */
+  background: radial-gradient(circle at 50% 35%, var(--navy-mid) 0%, var(--bg-dark) 60%, var(--bg-section) 100%);
+}
+
+/* Seamless Gradient Blend to Next Section (No Sharp Cut) */
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent 0%, var(--bg-section) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle Tricolour Radial Backdrop Texture */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 153, 51, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(19, 136, 8, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(212, 168, 67, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle Flag Backdrop Texture */
+.hero-flag-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  z-index: 1;
+}
+.flag-stripe { flex: 1; width: 100%; }
+.flag-stripe.saffron { background: linear-gradient(90deg, transparent, var(--saffron), transparent); }
+.flag-stripe.white-stripe { background: linear-gradient(90deg, transparent, var(--white), transparent); }
+.flag-stripe.green-stripe { background: linear-gradient(90deg, transparent, var(--green), transparent); }
+
+/* Floating Gold Particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: float-particle 6s ease-in-out infinite;
+}
+@keyframes float-particle {
+  0% { opacity: 0; transform: translateY(100vh) scale(0.5); }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { opacity: 0; transform: translateY(-20vh) scale(1.2); }
+}
+
+/* Hero Content Box */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+}
+
+/* Patriotic Badge */
+.patriotic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  padding: 6px 18px;
+  border-radius: var(--radius-xl);
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.patriotic-badge .badge-line {
+  width: 24px;
+  height: 2px;
+  border-radius: 1px;
+}
+.patriotic-badge .saffron-line { background: var(--saffron); box-shadow: 0 0 8px var(--saffron); }
+.patriotic-badge .green-line { background: var(--green); box-shadow: 0 0 8px var(--green); }
+.patriotic-badge .badge-text {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* Emblem Logo & Ashoka Chakra Halo */
+.hero-emblem {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  padding: 8px;
+  background: var(--bg-dark);
+  box-shadow: 0 0 30px rgba(212, 168, 67, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Subtle Rotating Chakra Halo behind Emblem */
+.chakra-backdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 170px;
+  height: 170px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.2;
+}
+.ashoka-chakra-svg {
+  width: 100%;
+  height: 100%;
+  animation: spin-slow 45s linear infinite;
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Hero Titles */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.hero-college {
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+.hero-tagline {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--saffron);
+  margin-bottom: 36px;
+  min-height: 32px;
+}
+
+/* Hero Shlok Card */
+.hero-shlok {
+  max-width: 780px;
+  margin: 32px auto 0;
+  padding: 36px 32px 28px;
+  background: rgba(10, 17, 40, 0.75);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 168, 67, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.shlok-om {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  background: var(--bg-dark);
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-family: serif;
+  box-shadow: 0 0 15px rgba(212, 168, 67, 0.3);
+}
+.shlok-text {
+  font-family: var(--font-display), 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  color: var(--gold-light);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+}
+.shlok-author {
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+
+/* Scroll Indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+.hero-scroll-indicator:hover { opacity: 1; }
+.hero-scroll-indicator span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+.scroll-mouse {
+  width: 20px;
+  height: 32px;
+  border: 2px solid var(--text-muted);
+  border-radius: 10px;
+  position: relative;
+}
+.scroll-mouse::before {
+  content: '';
+  position: absolute;
+  top: 6px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 6px;
+  background: var(--gold);
+  border-radius: 2px;
+  animation: scroll-mouse-anim 2s infinite;
+}
+@keyframes scroll-mouse-anim {
+  0% { opacity: 1; top: 6px; }
+  100% { opacity: 0; top: 18px; }
+}
+
+/* ─── ABOUT SECTION ─── */
+#about {
+  background: var(--bg-section);
+}
+
+/* About Grid & Cards */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.about-text {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+.about-text::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--saffron), var(--gold), var(--green));
+  border-radius: 4px 0 0 4px;
+}
+.about-text p {
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.about-text p:last-child { margin-bottom: 0; }
+.about-text p strong {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* Stat Cards */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.stat-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 24px 16px;
+  text-align: center;
+  transition: var(--transition);
+}
+.stat-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--saffron), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Timeline Objectives */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  padding-left: 30px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 60px; bottom: 0; left: 7px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--saffron), var(--gold), var(--green));
+  opacity: 0.6;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: -30px; top: 4px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--bg-section);
+  box-shadow: 0 0 10px var(--gold);
+}
+.timeline-content {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  transition: var(--transition);
+}
+.timeline-content:hover {
+  border-color: var(--gold);
+  transform: translateX(6px);
+}
+.timeline-content h4 {
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+.timeline-content p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Bhagavad Gita Quote Container */
+.about-quote {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.05) 0%, rgba(19, 136, 8, 0.05) 100%);
+  border: 1px solid rgba(212, 168, 67, 0.25);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+.about-quote::before {
+  content: 'ॐ';
+  position: absolute;
+  top: -20px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 40px;
+  background: var(--bg-section);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+.about-quote blockquote {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--gold-light);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.about-quote cite {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: normal;
+  letter-spacing: 0.5px;
+}
+
+@media(max-width: 868px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-quote { padding: 28px 20px; }
+}
