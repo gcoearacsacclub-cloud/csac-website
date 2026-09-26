@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+
+/* ============================================
+   WORKING COMMITTEE (Redesigned) & MEMBERS (New)
+   Premium Glassmorphism Cards with Gold Accents
+   ============================================ */
+
+/* ─── SECTION 5: WORKING COMMITTEE (Redesigned) ─── */
+#committee {
+  background: var(--bg-dark);
+}
+
+.committee-grid-new {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Premium Committee Card */
+.cmte-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 10px 8px 8px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  max-width: 220px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  /* GPU Acceleration & Performance */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.cmte-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold), var(--green));
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+
+.cmte-card:hover {
+  transform: translateY(-10px) scale(1.04) translateZ(0);
+  border-color: var(--gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(212, 168, 67, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.cmte-card:hover::before {
+  opacity: 1;
+}
+
+/* Profile Photo */
+.cmte-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 5px;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #d4af37;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.2);
+  flex-shrink: 0;
+
+  /* GPU Acceleration */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.cmte-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cmte-card:hover .cmte-photo {
+  transform: scale(1.08) translateZ(0);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(212, 175, 55, 0.4);
+}
+
+/* Default Avatar */
+.cmte-photo .default-avatar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+  color: var(--gold);
+  font-size: 28px;
+}
+
+/* Name */
+.cmte-card h3 {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+/* Position Badge - Royal Antique Gold Nameplate */
+.cmte-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;         /* Fixed — every badge is identical */
+  height: 36px;         /* Fixed — ensures uniform vertical position */
+  font-size: 0.72rem;
+  font-family: 'Cinzel', 'Cormorant Garamond', 'Marcellus', serif;
+  font-weight: 600;
+  color: #1A1A1A;
+  background: linear-gradient(180deg, #E9CF7A 0%, #C89B2E 100%);
+  border: 1px solid #9A6B12;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin: 0 auto 6px auto;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35),
+              inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cmte-card:hover .cmte-position {
+  transform: translateY(-2px);
+  border-color: #D4AF37;
+}
+
+/* Department & Year */
+.cmte-dept {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.2;
+  margin-bottom: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ═══════════════════════════════════════════
+   NEW SECTION: OUR MEMBERS
+   ═══════════════════════════════════════════ */
+
+#members {
+  background: var(--bg-section);
+}
+
+/* Search Bar */
+.members-search-wrap {
+  width: 350px;
+  max-width: 100%;
+  margin: 0 auto 28px;
+  position: relative;
+}
+
+.members-search-wrap i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 15px;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+#members-search {
+  width: 100%;
+  padding: 12px 20px 12px 48px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: var(--font-primary);
+  outline: none;
+  transition: all 0.35s ease;
+}
+
+#members-search::placeholder {
+  color: var(--text-muted);
+}
+
+#members-search:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(212, 168, 67, 0.12);
+}
+
+#members-search:focus+i,
+#members-search:focus~i {
+  color: var(--gold);
+}
+
+.members-search-wrap:focus-within i {
+  color: var(--gold);
+}
+
+/* Filter Buttons */
+.members-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.member-filter-btn {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  font-family: var(--font-primary);
+}
+
+.member-filter-btn:hover,
+.member-filter-btn.active {
+  background: rgba(212, 168, 67, 0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 18px rgba(212, 168, 67, 0.15);
+}
+
+/* Members Grid */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Member Card - Compact */
+.mbr-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+
+  /* GPU Acceleration */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.mbr-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--saffron));
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+
+.mbr-card:hover {
+  transform: translateY(-8px) scale(1.03) translateZ(0);
+  border-color: rgba(212, 168, 67, 0.4);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(212, 168, 67, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+.mbr-card:hover::before {
+  opacity: 1;
+}
+
+/* Member Photo */
+.mbr-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 5px;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform .28s ease, border-color .28s ease;
+}
+
+.mbr-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.mbr-photo .default-avatar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+  color: var(--gold);
+  font-size: 22px;
+}
+
+.mbr-card:hover .mbr-photo {
+  transform: scale(1.08) translateZ(0);
+  border-color: var(--gold);
+}
+
+.mbr-info h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  font-family: var(--font-display);
+}
+
+.mbr-team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;         /* Fixed — every badge is identical */
+  height: 32px;         /* Fixed — ensures uniform vertical position */
+  gap: 4px;
+  font-size: 0.65rem;
+  font-family: 'Cinzel', 'Cormorant Garamond', 'Marcellus', serif;
+  font-weight: 600;
+  color: #1A1A1A;
+  background: linear-gradient(180deg, #E9CF7A 0%, #C89B2E 100%);
+  border: 1px solid #9A6B12;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin: 0 auto 5px auto;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3),
+              inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.mbr-card:hover .mbr-team {
+  transform: translateY(-2px);
+  border-color: #f0d68a;
+}
+
+.mbr-dept {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.mbr-dept i {
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.mbr-year {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* No Results Message */
+.members-no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: none;
+  grid-column: 1 / -1;
+}
+
+.members-no-results i {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 14px;
+  opacity: 0.4;
+}
+
+/* Card animation states for filter/search */
+.mbr-card.hidden-card {
+  display: none;
+}
+
+.mbr-card.fade-in {
+  animation: memberFadeIn 0.3s ease forwards;
+}
+
+@keyframes memberFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) translateZ(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ═══════════════════════════════════════════ */
+
+/* @media 1200px (Desktop / Large Laptop) */
+@media (max-width: 1200px) {
+  .committee-grid-new {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* @media 992px (Laptop) */
+@media (max-width: 992px) {
+  .committee-grid-new {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+
+  .cmte-photo {
+    width: 85px;
+    height: 85px;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* @media 768px (Tablet) */
+@media (max-width: 768px) {
+  .committee-grid-new {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .cmte-photo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cmte-card {
+    padding: 20px 12px 16px;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .members-filters {
+    gap: 8px;
+  }
+
+  .member-filter-btn {
+    padding: 7px 16px;
+    font-size: 0.75rem;
+  }
+}
+
+/* @media 576px (Mobile) */
+@media (max-width: 576px) {
+  .committee-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .cmte-card {
+    padding: 12px 8px;
+    border-radius: 12px;
+  }
+
+  .cmte-photo {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 6px;
+    border-width: 3px;
+  }
+
+  .cmte-card h3 {
+    font-size: 15px;
+    /* Fixed font size for mobile */
+    margin-bottom: 6px;
+  }
+
+  .cmte-position {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .cmte-dept {
+    font-size: 12px;
+    /* Fixed font size for mobile */
+    margin-bottom: 0;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .mbr-card {
+    padding: 14px 10px;
+  }
+
+  .mbr-photo {
+    width: 55px;
+    height: 55px;
+  }
+}
