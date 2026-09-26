@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSAC Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/admin.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+  <!-- Login Screen -->
+  <div id="login-section" class="login-wrapper">
+    <div class="login-box">
+      <img src="logo.jpeg" alt="CSAC Logo" class="login-logo">
+      <h2>CSAC Admin Portal</h2>
+      <p>Sign in to manage website content</p>
+      <form id="login-form">
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="login-email" placeholder="Email Address" required>
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="login-password" placeholder="Password" required>
+        </div>
+        <p id="login-error" class="error-msg"></p>
+        <button type="submit" class="btn-primary" id="login-btn">
+          <span>Sign In</span> <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard-section" class="dashboard-wrapper hidden">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="logo.jpeg" alt="CSAC">
+        <div>
+          <h3>Admin Panel</h3>
+          <p>GCOEARA</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-collection="committee">
+          <i class="fa-solid fa-users-gear"></i> Committee
+        </button>
+        <button class="nav-item" data-collection="members">
+          <i class="fa-solid fa-users"></i> Members
+        </button>
+        <button class="nav-item" data-collection="applications">
+          <i class="fa-solid fa-file-signature"></i> Applications
+        </button>
+        <button class="nav-item" data-collection="gallery">
+          <i class="fa-solid fa-images"></i> Gallery
+        </button>
+        <button class="nav-item" data-collection="reports">
+          <i class="fa-solid fa-file-pdf"></i> Reports
+        </button>
+        <button class="nav-item" data-collection="testimonials">
+          <i class="fa-solid fa-comments"></i> Testimonials
+        </button>
+        <button class="nav-item" data-collection="achievements">
+          <i class="fa-solid fa-trophy"></i> Achievements
+        </button>
+        <button class="nav-item" data-collection="events">
+          <i class="fa-solid fa-calendar-week"></i> CSAC Week
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logout-btn" class="btn-outline">
+          <i class="fa-solid fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <h2 id="current-section-title">Manage Committee</h2>
+        <div id="header-action-container" style="display: flex; gap: 10px; align-items: center;">
+          <button id="export-pdf-btn" class="btn-outline hidden" style="border-color: #e53e3e; color: #e53e3e;">
+            <i class="fa-solid fa-file-pdf"></i> Export PDF
+          </button>
+          <button id="export-csv-btn" class="btn-outline hidden" style="border-color: #38a169; color: #38a169;">
+            <i class="fa-solid fa-file-csv"></i> Export CSV
+          </button>
+          <button id="add-new-btn" class="btn-primary">
+            <i class="fa-solid fa-plus"></i> Add New Item
+          </button>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <div id="loading-spinner" class="spinner hidden">
+          <i class="fa-solid fa-circle-notch fa-spin"></i> Loading data...
+        </div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead id="table-head">
+              <!-- Dynamic Headers -->
+            </thead>
+            <tbody id="table-body">
+              <!-- Dynamic Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Dynamic Add/Edit Modal -->
+  <div id="item-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Add Item</h3>
+        <button id="close-modal" class="icon-btn"><i class="fa-solid fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="item-form">
+          <div id="dynamic-form-fields" class="form-grid">
+            <!-- Fields generated by JS -->
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-outline" id="cancel-modal">Cancel</button>
+            <button type="submit" class="btn-primary" id="save-item-btn">
+              <i class="fa-solid fa-save"></i> Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Detail Modal -->
+  <div id="application-modal" class="modal-overlay hidden">
+    <div class="modal-content" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-id-card"></i> Application Details</h3>
+        <button id="close-app-modal" class="icon-btn"><i class="fa-solid fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="app-modal-body" style="padding-top: 15px;">
+        <!-- Application details injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Image/PDF Preview Modal -->
+  <div id="preview-modal" class="modal-overlay hidden">
+    <div class="modal-content preview-content">
+      <button id="close-preview" class="icon-btn preview-close"><i class="fa-solid fa-times"></i></button>
+      <div id="preview-container"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="scripts/admin.js"></script>
+</body>
+
+</html>
